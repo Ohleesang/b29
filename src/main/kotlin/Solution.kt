@@ -16,7 +16,7 @@ class Solution {
 
     fun solution(quiz: Array<String>): Array<String> {
         val answer = mutableListOf<String>()
-        val regex = Regex("""(-?\d+)\s([+-])\s(\d+)\s=\s(-?\d+)""")
+        val regex = Regex("""(-?\d+)\s([+-])\s(-?\d+)\s=\s(-?\d+)""")
         var x = 0
         var y = 0
         var z = 0
@@ -28,6 +28,7 @@ class Solution {
                 x = groupValues[1].toInt()
                 operator = groupValues[2]
                 y = groupValues[3].toInt()
+
                 z = groupValues[4].toInt()
 
                 answer.add(checkExpression(x, operator, y, z))
@@ -40,8 +41,7 @@ class Solution {
 fun main() {
     Solution().solution(
         arrayOf(
-            "3 - 4 = -3",
-            "5 + 6 = 11"
+            "3 - -4 = -3",
         )//X,O
     )
     Solution().solution(
